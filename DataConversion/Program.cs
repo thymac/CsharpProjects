@@ -44,9 +44,19 @@
 // int value2 = Convert.ToInt32(1.3m);
 // Console.WriteLine(value2);
 
-// Exercise - Examine the TryParse() method
-string value = "123";
-if (int.TryParse(value, out value))
-{
-  
-}
+// // Exercise - Examine the TryParse() method
+// string value = "12Y3";
+// int result = 0;
+// if (int.TryParse(value, out result))
+// {
+//   Console.WriteLine($"Measurement: {result}");
+// }
+// else
+// {
+//   Console.WriteLine("Unable to report the measurement.");
+// }
+// if (result > 0)
+//   Console.WriteLine($"Measurement (w/ offset): {50 + result}");
+
+// Exercise - Complete a challenge to combine string array values as strings and as integers
+string[] values = { "12.3", "45", "ABC", "11", "DEF" };
