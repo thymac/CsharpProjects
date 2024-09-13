@@ -69,12 +69,102 @@
 // });
 
 // // Enumerable.Aggregate Method
-string[] fruits = { "apple", "mango", "orange", "passionfruit", "grape"};
+// string[] fruits = { "apple", "mango", "orange", "passionfruit", "grape"};
 
-string longestName = fruits.Aggregate("banana", (longest, next) => next.Length > longest.Length ? next : longest, fruit =>  fruit.ToUpper());
-Console.WriteLine(longestName);
+// string longestName = fruits.Aggregate("banana", (longest, next) => next.Length > longest.Length ? next : longest, fruit =>  fruit.ToUpper());
+// Console.WriteLine(longestName);
 
-int[] ints = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+// int[] ints = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
 
-int numEven = ints.Aggregate(0, (total, next) => next % 2 == 0 ? total + 1 : total);
-Console.WriteLine(numEven);
+// // Aggregate Helper Method
+// int numEven = ints.Aggregate(0, (total, next) => next % 2 == 0 ? total + 1 : total);
+// Console.WriteLine(numEven);
+
+// // LINQ Method Where
+// int[] evenArray = ints.Where(x => x % 2 == 0).ToArray();
+// Console.WriteLine(string.Join(", ", evenArray));
+
+// string[] fruits = { "apple", "banana", "mango", "orange", "passionfruit", "grape" };
+
+// // Select Helper Method
+// var query = fruits.Select((fruit, index) => new { index, str = fruit.Substring(0, index) });
+
+// foreach (var obj in query)
+// {
+//   Console.WriteLine("{0}", obj);
+// }
+
+
+// // SelectMany Helper method
+
+// SelectManyEx3();
+
+// void SelectManyEx3()
+// {
+//   PetOwner[] petOwners =
+//   {
+//         new PetOwner { Name="Higa", Pets = new List<string>{ "Scruffy", "Sam" } },
+//         new PetOwner { Name="Ashkenazi", Pets = new List<string>{ "Walker", "Sugar" } },
+//         new PetOwner { Name="Price", Pets = new List<string>{ "Scratches", "Diesel" } },
+//         new PetOwner { Name="Hines", Pets = new List<string>{ "Dusty" } }
+//   };
+
+//   // Project the pet owner's name and the pet's name.
+//   var query =
+//       petOwners
+//       .SelectMany(petOwner => petOwner.Pets, (petOwner, petName) => new { petOwner, petName })
+//       .Where(ownerAndPet => ownerAndPet.petName.StartsWith("S"))
+//       .Select(ownerAndPet =>
+//               new
+//               {
+//                 Owner = ownerAndPet.petOwner.Name,
+//                 Pet = ownerAndPet.petName
+//               }
+//       );
+
+//   // Print the results with custom formatting.
+//   foreach (var obj in query)
+//   {
+//     Console.WriteLine($"Owner: {obj.Owner}, Pet: {obj.Pet}");
+//   }
+// }
+
+// class PetOwner
+// {
+//   public string Name { get; set; } = string.Empty;
+//   public List<string> Pets { get; set; } = new List<string>();
+// }
+
+// Custom LINQ Extension 
+// int[] ints = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+// var numEven = ints.WhereEven();
+
+// Console.WriteLine(string.Join(", ", numEven));
+// public static class LinQExtensions
+// {
+//   public static IEnumerable<int> WhereEven(this IEnumerable<int> source)
+//   {
+//     foreach (int number in source)
+//     {
+//       if (number % 2 == 0)
+//         yield return number;
+//     }
+//   }
+// }
+
+// // Exercise - Discover Split() and Join()
+// string value = "abc123";
+// char[] valueArray = value.ToCharArray();
+// Array.Reverse(valueArray);
+// // string result = new string(valueArray);
+// string result = string.Join(",", valueArray);
+// Console.WriteLine(result);
+
+// Console.WriteLine();
+// string[] items = (result as string)?.Split(',');
+// foreach (string item in items)
+// {
+//   Console.WriteLine(item);
+// }
+
+// Exercise - Complete a challenge to reverse words in a sentence
