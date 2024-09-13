@@ -168,3 +168,44 @@
 // }
 
 // Exercise - Complete a challenge to reverse words in a sentence
+string pangram = "The quick brown fox jumps over the lazy dog";
+
+// Console.WriteLine(string.Join(" ", pangram.Split(' ').Select(word => new string(word.Reverse().ToArray()))));
+
+// string word = "renumeration";
+// Console.WriteLine(new string(word.Reverse().ToArray()));
+
+void reverseString(string pangram)
+{
+  // char[] characters = pangram.ToCharArray();
+  // int start = 0;
+
+  // for (int i = 0; i <= characters.Length; i++)
+  // {
+  //   if (i == characters.Length || characters[i] == ' ')
+  //   {
+  //     Array.Reverse(characters, start, i - start);
+  //     start = i + 1;
+  //   }
+  // }
+
+  // Console.WriteLine(new string(characters));
+
+  char[] charArray = pangram.ToCharArray();
+  int start = 0;
+
+  for (int i = 0; i <= charArray.Length; i++)
+  {
+    if (i == charArray.Length || charArray[i] == ' ')
+    {
+      Array.Reverse(charArray, start, i - start);
+      start = i + 1;
+    }
+  }
+
+  Console.WriteLine(new string(charArray));
+}
+
+string message = "The poor people from the hills need to come down to the city and ask for help";
+reverseString(message);
+reverseString(pangram);
