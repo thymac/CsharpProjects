@@ -59,6 +59,7 @@
 // Console.WriteLine("Updated list: " + string.Join(", ", numbers));
 
 // //  Nullable<T> method GetValueOrDefault()
+
 // int? number = null;
 // Console.WriteLine(number.GetValueOrDefault());
 
@@ -77,6 +78,7 @@
 // int[] ints = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
 
 // // Aggregate Helper Method
+
 // int numEven = ints.Aggregate(0, (total, next) => next % 2 == 0 ? total + 1 : total);
 // Console.WriteLine(numEven);
 
@@ -153,6 +155,7 @@
 // }
 
 // // Exercise - Discover Split() and Join()
+
 // string value = "abc123";
 // char[] valueArray = value.ToCharArray();
 // Array.Reverse(valueArray);
@@ -167,45 +170,84 @@
 //   Console.WriteLine(item);
 // }
 
-// Exercise - Complete a challenge to reverse words in a sentence
-string pangram = "The quick brown fox jumps over the lazy dog";
+// // Exercise - Complete a challenge to reverse words in a sentence
+
+// string pangram = "The quick brown fox jumps over the lazy dog";
 
 // Console.WriteLine(string.Join(" ", pangram.Split(' ').Select(word => new string(word.Reverse().ToArray()))));
 
 // string word = "renumeration";
 // Console.WriteLine(new string(word.Reverse().ToArray()));
 
-void reverseString(string pangram)
-{
-  // char[] characters = pangram.ToCharArray();
-  // int start = 0;
+// void reverseString(string pangram)
+// {
+// char[] characters = pangram.ToCharArray();
+// int start = 0;
 
-  // for (int i = 0; i <= characters.Length; i++)
-  // {
-  //   if (i == characters.Length || characters[i] == ' ')
-  //   {
-  //     Array.Reverse(characters, start, i - start);
-  //     start = i + 1;
-  //   }
-  // }
+// for (int i = 0; i <= characters.Length; i++)
+// {
+//   if (i == characters.Length || characters[i] == ' ')
+//   {
+//     Array.Reverse(characters, start, i - start);
+//     start = i + 1;
+//   }
+// }
 
-  // Console.WriteLine(new string(characters));
+// Console.WriteLine(new string(characters));
 
-  char[] charArray = pangram.ToCharArray();
-  int start = 0;
+//   char[] charArray = pangram.ToCharArray();
+//   int start = 0;
 
-  for (int i = 0; i <= charArray.Length; i++)
-  {
-    if (i == charArray.Length || charArray[i] == ' ')
-    {
-      Array.Reverse(charArray, start, i - start);
-      start = i + 1;
-    }
-  }
+//   for (int i = 0; i <= charArray.Length; i++)
+//   {
+//     if (i == charArray.Length || charArray[i] == ' ')
+//     {
+//       Array.Reverse(charArray, start, i - start);
+//       start = i + 1;
+//     }
+//   }
 
-  Console.WriteLine(new string(charArray));
-}
+//   Console.WriteLine(new string(charArray));
+// }
 
-string message = "The poor people from the hills need to come down to the city and ask for help";
-reverseString(message);
-reverseString(pangram);
+// string message = "The poor people from the hills need to come down to the city and ask for help";
+// reverseString(message);
+// reverseString(pangram);
+
+// // Exercise - Complete a challenge to parse a string of orders, sort the orders and tag possible errors
+// string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+
+// var result = orderStream
+//   .Split(',')
+//   .Select(x => x.Length != 4 ? $"{x} \t - Error" : $"{x}")
+//   .OrderBy(x => x);
+
+// Console.WriteLine(string.Join("\n", result));
+
+// Console.WriteLine("");
+
+// string[] orderArray = orderStream.Split(',');
+// Array.Sort(orderArray);
+// string message = "";
+
+// for (int i = 0; i < orderArray.Length; i++)
+// {
+//   message = orderArray[i];
+//   if (orderArray[i].Length != 4)
+//   {
+//     message = $"{orderArray[i]} \t - Error";
+//   }
+//   Console.WriteLine(message);
+// }
+
+// Console.WriteLine("");
+
+// string orderStream1 = "B123,C234,A345,C15,B177,G3003,C235,B179";
+
+// string result1 = orderStream1
+//     .Split(',')
+//     .OrderBy(x => x)  // Sort the orders alphabetically
+//     .Aggregate("", (acc, x) =>
+//         acc + (x.Length != 4 ? $"{x} \t - Error\n" : $"{x}\n"));
+
+// Console.WriteLine(result1);
