@@ -35,122 +35,122 @@
 
 // Console.WriteLine(message.Substring(openingPosition, length));
 
-// // Exercise - Use the string's IndexOf() and LastIndexOf() helper methods
+// Exercise - Use the string's IndexOf() and LastIndexOf() helper methods
 
-// message = "hello there!";
+message = "hello there!";
 
-// int first_h = message.IndexOf('h');
-// int last_h = message.LastIndexOf('h');
+int first_h = message.IndexOf('h');
+int last_h = message.LastIndexOf('h');
 
-// Console.WriteLine($"For the message: '{message}', the first 'h' is at position {first_h} and the last 'h' is at position {last_h}.");
+Console.WriteLine($"For the message: '{message}', the first 'h' is at position {first_h} and the last 'h' is at position {last_h}.");
 
-// string message = "(What if) I am (only interested) in the last (set of parentheses)?";
+string message = "(What if) I am (only interested) in the last (set of parentheses)?";
 
-// int openingPositon = message.LastIndexOf("(");
-// int closingPosition = message.LastIndexOf(")");
+int openingPositon = message.LastIndexOf("(");
+int closingPosition = message.LastIndexOf(")");
 
-// openingPositon += 1;
-// int length = closingPosition - openingPositon;
+openingPositon += 1;
+int length = closingPosition - openingPositon;
 
-// Console.WriteLine(message.Substring(openingPositon, length));
+Console.WriteLine(message.Substring(openingPositon, length));
 
-// string message = "(What if) there are (more than) one (set of parenthesis)?";
+string message = "(What if) there are (more than) one (set of parenthesis)?";
 
-// int openingPosition = 0;
-// int closingPosition = 0;
+int openingPosition = 0;
+int closingPosition = 0;
 
-// if (message.Length > 0)
-// {
-//   while (true)
-//   {
-//     openingPosition = message.IndexOf('(');
-//     if (openingPosition == -1) break;
+if (message.Length > 0)
+{
+  while (true)
+  {
+    openingPosition = message.IndexOf('(');
+    if (openingPosition == -1) break;
 
-//     openingPosition += 1;
-//     closingPosition = message.IndexOf(')');
-//     int length = closingPosition - openingPosition;
-//     Console.WriteLine(message.Substring(openingPosition, length));
+    openingPosition += 1;
+    closingPosition = message.IndexOf(')');
+    int length = closingPosition - openingPosition;
+    Console.WriteLine(message.Substring(openingPosition, length));
 
-//     message = message.Substring(closingPosition + 1);
-//   }
-// }
+    message = message.Substring(closingPosition + 1);
+  }
+}
 
-// string message = "Help (find) the {opening symbols}";
-// Console.WriteLine($"Searching THIS Mesage: {message}");
+string message = "Help (find) the {opening symbols}";
+Console.WriteLine($"Searching THIS Mesage: {message}");
 
-// char[] openSymbols = { '[', '{', '('};
-// int startPosition = 5;
-// int openingPosition = message.IndexOfAny(openSymbols);
+char[] openSymbols = { '[', '{', '('};
+int startPosition = 5;
+int openingPosition = message.IndexOfAny(openSymbols);
 
-// Console.WriteLine($"Found WITHOUT using startPosition: {message.Substring(openingPosition)}");
+Console.WriteLine($"Found WITHOUT using startPosition: {message.Substring(openingPosition)}");
 
-// openingPosition = message.IndexOfAny(openSymbols, startPosition);
+openingPosition = message.IndexOfAny(openSymbols, startPosition);
 
-// Console.WriteLine($"Found WITH using startPosition {startPosition}:  {message.Substring(openingPosition)}");
+Console.WriteLine($"Found WITH using startPosition {startPosition}:  {message.Substring(openingPosition)}");
 
-// string message = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
-// char[] openSymbols = { '[', '{', '(' };
-// int closingPosition = 0;
+string message = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
+char[] openSymbols = { '[', '{', '(' };
+int closingPosition = 0;
 
-// while (true)
-// {
-//   int openingPosition = message.IndexOfAny(openSymbols, closingPosition);
-//   if (openingPosition == -1) break;
+while (true)
+{
+  int openingPosition = message.IndexOfAny(openSymbols, closingPosition);
+  if (openingPosition == -1) break;
 
-//   string currentSymbol = message.Substring(openingPosition, 1);
-//   char matchingSymbol = ' ';
+  string currentSymbol = message.Substring(openingPosition, 1);
+  char matchingSymbol = ' ';
 
-//   switch (currentSymbol)
-//   {
-//     case "[":
-//       matchingSymbol = ']';
-//       break;
+  switch (currentSymbol)
+  {
+    case "[":
+      matchingSymbol = ']';
+      break;
 
-//     case "{":
-//       matchingSymbol = '}';
-//       break;
+    case "{":
+      matchingSymbol = '}';
+      break;
 
-//     case "(":
-//       matchingSymbol = ')';
-//       break;
-//   }
+    case "(":
+      matchingSymbol = ')';
+      break;
+  }
 
-//   openingPosition += 1;
-//   closingPosition = message.IndexOf(matchingSymbol, openingPosition);
-//   int length = closingPosition - openingPosition;
+  openingPosition += 1;
+  closingPosition = message.IndexOf(matchingSymbol, openingPosition);
+  int length = closingPosition - openingPosition;
 
-//   Console.WriteLine(message.Substring(openingPosition, length));
-// }
+  Console.WriteLine(message.Substring(openingPosition, length));
+}
 
-// string message = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
-// char[] openSymbols = { '[', '{', '(' };
-// Dictionary<char, char> symbolPairs = new Dictionary<char, char>
-// {
-//   { '[', ']' },
-//   { '{', '}' },
-//   { '(', ')' }
-// };
-// int closingPosition = 0;
+string message = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
+char[] openSymbols = { '[', '{', '(' };
+Dictionary<char, char> symbolPairs = new Dictionary<char, char>
+{
+  { '[', ']' },
+  { '{', '}' },
+  { '(', ')' }
+};
+int closingPosition = 0;
 
-// while (true)
-// {
-//   // Find the next opening symbol
-//   int openingPosition = message.IndexOfAny(openSymbols, closingPosition);
-//   if (openingPosition == -1) break; // No more opening symbols
+while (true)
+{
+  // Find the next opening symbol
+  int openingPosition = message.IndexOfAny(openSymbols, closingPosition);
+  if (openingPosition == -1) break; // No more opening symbols
 
-//   // Get the matching closing symbol using the dictionary
-//   char openingSymbol = message[openingPosition];
-//   if (!symbolPairs.TryGetValue(openingSymbol, out char matchingSymbol)) break;
+  // Get the matching closing symbol using the dictionary
+  char openingSymbol = message[openingPosition];
+  if (!symbolPairs.TryGetValue(openingSymbol, out char matchingSymbol)) break;
 
-//   // Look for the closing symbol after the opening symbol
-//   openingPosition++;
-//   closingPosition = message.IndexOf(matchingSymbol, openingPosition);
-//   if (closingPosition == -1) break; // No matching closing symbol found
+  // Look for the closing symbol after the opening symbol
+  openingPosition++;
+  closingPosition = message.IndexOf(matchingSymbol, openingPosition);
+  if (closingPosition == -1) break; // No matching closing symbol found
 
-//   // Calculate the substring between the symbols
-//   int length = closingPosition - openingPosition;
-//   Console.WriteLine(message.Substring(openingPosition, length));
-// }
+  // Calculate the substring between the symbols
+  int length = closingPosition - openingPosition;
+  Console.WriteLine(message.Substring(openingPosition, length));
+}
 
 // Deferred execution
 var nums = new List<int> { 1, 2, 3, 4, 5, 6, 7 };
