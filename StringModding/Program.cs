@@ -152,27 +152,28 @@
 //   Console.WriteLine(message.Substring(openingPosition, length));
 // }
 
-// // Deferred execution
-// var nums = new List<int> { 1, 2, 3, 4, 5, 6, 7 };
-// var even = nums.WherEven().ToList();
+// Deferred execution
+var nums = new List<int> { 1, 2, 3, 4, 5, 6, 7 };
+var even = nums.WherEven().ToList();
 
-// nums.Add(10);
-// nums.Add(20);
-// nums.Add(30);
+nums.Add(10);
+nums.Add(20);
+nums.Add(30);
 
-// Console.WriteLine(string.Join(", ", even));
+Console.WriteLine(string.Join(", ", even));
 
-// public static class LinqExtensions
-// {
-//   public static IEnumerable<int> WherEven(this IEnumerable<int> source)
-//   {
-//     foreach (var number in source)
-//     {
-//       if (number % 2 == 0)
-//         yield return number;
-//     }
-//   }
-// }
+public static class LinqExtensions
+{
+  public static IEnumerable<int> WherEven(this IEnumerable<int> source)
+  {
+    foreach (var number in source)
+    {
+      if (number % 2 == 0)
+        yield return number;
+    }
+  }
+}
 
-// Exercise - Use the Remove() and Replace() methods
+Exercise - Use the Remove() and Replace() methods
+
 
