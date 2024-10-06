@@ -1,4 +1,5 @@
-﻿// Exercise - Understand return type syntax
+﻿using System.Text;
+// Exercise - Understand return type syntax
 
 // Use methods to calculate the total purchase price
 
@@ -35,40 +36,103 @@
 //   return input.ToString(F2);
 // }
 
-// Create a method that returns an integer
+// // Create a method that returns an integer
 
-int vnd = UsdToVnd();
-double usd = VndToUsd(vnd);
+// int vnd = UsdToVnd();
+// double usd = VndToUsd(vnd);
 
-Console.WriteLine($"${usd} USD = ${vnd} VND");
-Console.WriteLine($"${vnd} VND = ${usd} USD");
+// Console.WriteLine($"${usd} USD = ${vnd} VND");
+// Console.WriteLine($"${vnd} VND = ${usd} USD");
 
-int UsdToVnd()
-{
-  double usd = 23.73;
-  int rate = 23500;
-  return (int)(usd * rate);
-}
+// int UsdToVnd()
+// {
+//   double usd = 23.73;
+//   int rate = 23500;
+//   return (int)(usd * rate);
+// }
 
-double VndToUsd(int vnd)
-{
-  double rate = 23500.00;
-  return (vnd / rate);
-}
+// double VndToUsd(int vnd)
+// {
+//   double rate = 23500.00;
+//   return (vnd / rate);
+// }
 
 // Exercise - Return strings from methods
 
+// ReverseWord("honda");
+ReverseWord2(ReverseWord3(ReverseWord("honda")));
+
 string ReverseWord(string word)
 {
-  char[] charsArray = word.Split();
+  char[] wordArr = word.ToCharArray();
+  char[] charsArr = new char[wordArr.Length];
 
-  for (int i = word.Length; i >= 0; i--)
+  for (int i = 0; i < wordArr.Length; i++)
   {
-    for (int j = 0; j < word.Length; j++)
-    {
-      charsArray[j] = charsArray[i];
-    }
+    charsArr[i] = wordArr[wordArr.Length - 1 - i];
   }
 
-  return Convert.ToString(charsArray);
+  string reversedWord = new string(charsArr);
+  // Console.WriteLine(reversedWord);
+  return reversedWord;
+}
+
+string ReverseWord2(string word)
+{
+  char[] wordArr = word.ToCharArray();
+  char temp = ' ';
+  int start = 0;
+  int end = wordArr.Length - 1;
+
+  while (start < end)
+  {
+    temp = wordArr[end];
+    wordArr[end--] = wordArr[start];
+    wordArr[start++] = temp;
+  }
+
+  string reversedWord = new string(wordArr);
+  Console.WriteLine(reversedWord);
+  return reversedWord;
+}
+
+string ReverseWord3(string word)
+{
+  string result = "";
+  for (int i = word.Length - 1; i >= 0; i--)
+  {
+    result += word[i];
+  }
+  return result;
+}
+
+string input = "Create a method to reverse words in a sentence";
+ReverseSentence(input);
+
+string ReverseSentence(string input)
+{
+  string[] strings = input.Split(' ');
+  StringBuilder result = new StringBuilder();
+
+  foreach (string s in strings)
+  {
+    if (s.Length > 1)
+    {
+      string intermediate = "";
+      for (int i = s.Length - 1; i >= 0; i--)
+      {
+        intermediate += s[i];
+      }
+
+      result.Append($"{intermediate} ");
+    }
+    else
+    {
+      result.Append($"{s} ");
+    }
+  }
+  string sentence = result.ToString();
+
+  Console.WriteLine(sentence);
+  return sentence;
 }
